@@ -140,6 +140,11 @@ public class GLFW {
         sendKeyEvent(glfwCode, state ? 1 : 0, mods);
     }
 
+    @SuppressWarnings("unused") // Used from native
+    private static void receiveInit() {
+        // Native GLFW initialization complete signal
+    }
+
     public static native void initialize();
     private static native void sendMousePosition0(double x, double y);
     public static native void sendKeyEvent(int glfwCode, int state, int mods);
