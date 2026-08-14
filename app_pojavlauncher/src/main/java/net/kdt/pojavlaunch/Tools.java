@@ -1,7 +1,7 @@
 package net.kdt.pojavlaunch;
 
 import static android.os.Build.VERSION.SDK_INT;
-import static net.kdt.pojavlaunch.PojavApplication.sExecutorService;
+import static net.kdt.pojavlaunch.BronzeApplication.sExecutorService;
 
 import android.app.Activity;
 import android.app.ActivityManager;

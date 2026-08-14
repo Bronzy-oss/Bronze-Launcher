@@ -31,14 +31,14 @@ import java.util.concurrent.TimeUnit;
 
 import git.artdeell.mojo.BuildConfig;
 
-public class PojavApplication extends Application {
+public class BronzeApplication extends Application {
 	public static final String CRASH_REPORT_TAG = "PojavCrashReport";
 	public static final ExecutorService sExecutorService = new ThreadPoolExecutor(4, 4, 500, TimeUnit.MILLISECONDS,  new LinkedBlockingQueue<>());
 
 	private void installFatalErrorHandler() {
 		Thread.setDefaultUncaughtExceptionHandler((thread, th) -> {
 			boolean storagePermAllowed = (Build.VERSION.SDK_INT < 23 || Build.VERSION.SDK_INT >= 29 ||
-					ActivityCompat.checkSelfPermission(PojavApplication.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && Tools.checkStorageRoot(PojavApplication.this);
+					ActivityCompat.checkSelfPermission(BronzeApplication.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) && Tools.checkStorageRoot(BronzeApplication.this);
 			File crashFile = new File(storagePermAllowed ? Tools.DIR_GAME_HOME : Tools.DIR_DATA, "latestcrash.txt");
 			try {
 				// Write to file, since some devices may not able to show error
@@ -57,7 +57,7 @@ public class PojavApplication extends Application {
 				Log.e(CRASH_REPORT_TAG, " - The crash stack trace was:", th);
 			}
 
-			FatalErrorActivity.showError(PojavApplication.this, crashFile.getAbsolutePath(), storagePermAllowed, th);
+			FatalErrorActivity.showError(BronzeApplication.this, crashFile.getAbsolutePath(), storagePermAllowed, th);
 			Tools.fullyExit();
 		});
 	}

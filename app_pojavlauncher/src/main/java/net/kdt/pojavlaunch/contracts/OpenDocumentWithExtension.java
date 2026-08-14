@@ -10,7 +10,7 @@ import androidx.activity.result.contract.ActivityResultContract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -28,7 +28,7 @@ public class OpenDocumentWithExtension extends ActivityResultContract<Object, Ur
      */
     public OpenDocumentWithExtension(String extension) {
         // Who would have thought that loading the MIME map takes a significant amount of time?
-        extensionMimeTypeFuture = PojavApplication.sExecutorService.submit(()->{
+        extensionMimeTypeFuture = BronzeApplication.sExecutorService.submit(()->{
             String extensionMimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
             if(extensionMimeType == null) extensionMimeType = "*/*";
             return extensionMimeType;

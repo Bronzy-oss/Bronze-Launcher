@@ -29,7 +29,7 @@ import com.kdt.mcgui.ProgressLayout;
 
 import git.artdeell.mojo.R;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.modloaders.modpacks.ModItemAdapter;
 import net.kdt.pojavlaunch.modloaders.modpacks.api.CommonApi;
@@ -80,7 +80,7 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
                 if (uri == null) return;
                 Context context = getContext();
                 ContentResolver contentResolver = getContext().getContentResolver();
-                PojavApplication.sExecutorService.execute(() -> {
+                BronzeApplication.sExecutorService.execute(() -> {
                     performLocalInstall(uri, context, contentResolver);
                 });
             });

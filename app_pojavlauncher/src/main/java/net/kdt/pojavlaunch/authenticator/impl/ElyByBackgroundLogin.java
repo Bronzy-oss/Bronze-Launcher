@@ -1,6 +1,6 @@
 package net.kdt.pojavlaunch.authenticator.impl;
 
-import static net.kdt.pojavlaunch.PojavApplication.sExecutorService;
+import static net.kdt.pojavlaunch.BronzeApplication.sExecutorService;
 
 import android.util.Log;
 

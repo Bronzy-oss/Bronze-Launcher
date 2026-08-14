@@ -170,7 +170,7 @@ public class JavaGUILauncherActivity extends BaseActivity implements View.OnTouc
                 File jarFile = new File(jarPath);
                 startModInstaller(jarFile, javaArgs);
             }else {
-                PojavApplication.sExecutorService.execute(()->startModInstallerWithUri(resourceUri, javaArgs));
+                BronzeApplication.sExecutorService.execute(()->startModInstallerWithUri(resourceUri, javaArgs));
             }
             if(extras.getBoolean("openLogOutput", false)) openLogOutput(null);
         } catch (Throwable th) {

@@ -4,7 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.Constants;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.ModDetail;
@@ -63,7 +63,7 @@ public class CommonApi implements ModpackApi {
             // and the previous result is null, it means that na error has occured on the previous
             // page. We lost contingency anyway, so don't bother requesting.
             if(previousPageResult != null && results[i] == null) continue;
-            futures[i] = PojavApplication.sExecutorService.submit(new ApiDownloadTask(i, searchFilters,
+            futures[i] = BronzeApplication.sExecutorService.submit(new ApiDownloadTask(i, searchFilters,
                     results[i]));
         }
 

@@ -2,7 +2,7 @@ package net.kdt.pojavlaunch.modloaders.modpacks.imagecache;
 
 import android.util.Log;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -65,7 +65,7 @@ public class IconCacheJanitor implements Runnable{
     public static void runJanitor() {
         synchronized (IconCacheJanitor.class) {
             if (sJanitorFuture != null || sJanitorRan) return;
-            sJanitorFuture = PojavApplication.sExecutorService.submit(new IconCacheJanitor());
+            sJanitorFuture = BronzeApplication.sExecutorService.submit(new IconCacheJanitor());
         }
     }
 

@@ -5,7 +5,7 @@ import android.content.Context;
 
 import com.kdt.mcgui.ProgressLayout;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.modloaders.modpacks.models.ModDetail;
@@ -52,7 +52,7 @@ public interface ModpackApi {
         // Doing this here since when starting installation, the progress does not start immediately
         // which may lead to two concurrent installations (very bad)
         ProgressLayout.setProgress(ProgressLayout.INSTALL_MODPACK, 0, R.string.global_waiting);
-        PojavApplication.sExecutorService.execute(() -> {
+        BronzeApplication.sExecutorService.execute(() -> {
             try {
                 installModpack(modDetail, selectedVersion);
             }catch (IOException e) {

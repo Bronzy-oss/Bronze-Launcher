@@ -27,7 +27,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.authenticator.AuthType;
 import net.kdt.pojavlaunch.authenticator.BackgroundLogin;
@@ -141,7 +141,7 @@ public class AccountSpinner extends AppCompatSpinner implements LoginListener, A
     }
 
     private void reload() {
-        PojavApplication.sExecutorService.execute(()->{
+        BronzeApplication.sExecutorService.execute(()->{
             try {
                 Accounts accounts = Accounts.load();
                 Tools.runOnUiThread(()->refresh(accounts));

@@ -20,7 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.imgcropper.BitmapCropBehaviour;
@@ -71,7 +71,7 @@ public class CropperUtils {
             dialog.dismiss();
             cropperReceiver.onCropped(cropImageView.crop(cropperReceiver.getTargetMaxSide()));
         });
-        PojavApplication.sExecutorService.execute(()->{
+        BronzeApplication.sExecutorService.execute(()->{
             CropperBehaviour cropperBehaviour = null;
             try {
                  cropperBehaviour = createBehaviour(cropImageView, contentResolver, selectedUri);

@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.extra.ExtraCore;
@@ -104,7 +104,7 @@ public abstract class FabriclikeInstallFragment extends Fragment implements Modl
         proxy.attachListener(this);
         setListenerProxy(proxy);
         mStartButton.setEnabled(false);
-        PojavApplication.sExecutorService.execute(this::performInstallation);
+        BronzeApplication.sExecutorService.execute(this::performInstallation);
     }
 
     private void performInstallation() {
@@ -255,7 +255,7 @@ public abstract class FabriclikeInstallFragment extends Fragment implements Modl
 
     private void updateLoaderVersions() {
         startLoading();
-        mLoaderVersionFuture = new SelfReferencingFuture(new LoadLoaderVersionsTask()).startOnExecutor(PojavApplication.sExecutorService);
+        mLoaderVersionFuture = new SelfReferencingFuture(new LoadLoaderVersionsTask()).startOnExecutor(BronzeApplication.sExecutorService);
     }
 
     private void updateLoaderSpinner() {
@@ -302,7 +302,7 @@ public abstract class FabriclikeInstallFragment extends Fragment implements Modl
 
     private void updateGameVersions() {
         startLoading();
-        mGameVersionFuture = new SelfReferencingFuture(new LoadGameVersionsTask()).startOnExecutor(PojavApplication.sExecutorService);
+        mGameVersionFuture = new SelfReferencingFuture(new LoadGameVersionsTask()).startOnExecutor(BronzeApplication.sExecutorService);
     }
 
     private void updateGameSpinner() {

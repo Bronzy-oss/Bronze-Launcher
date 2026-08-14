@@ -2,7 +2,7 @@ package net.kdt.pojavlaunch.tasks;
 
 
 import static net.kdt.pojavlaunch.Architecture.archAsString;
-import static net.kdt.pojavlaunch.PojavApplication.sExecutorService;
+import static net.kdt.pojavlaunch.BronzeApplication.sExecutorService;
 
 import android.content.Context;
 import android.content.res.AssetManager;

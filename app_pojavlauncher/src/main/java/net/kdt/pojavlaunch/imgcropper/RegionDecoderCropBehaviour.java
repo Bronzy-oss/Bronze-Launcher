@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Looper;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import net.kdt.pojavlaunch.modloaders.modpacks.SelfReferencingFuture;
 import net.kdt.pojavlaunch.utils.MatrixUtils;
 
@@ -36,7 +36,7 @@ public class RegionDecoderCropBehaviour extends BitmapCropBehaviour {
                 mOverlayDst.set(overlayDst);
                 mHostView.invalidate();
             });
-        }).startOnExecutor(PojavApplication.sExecutorService);
+        }).startOnExecutor(BronzeApplication.sExecutorService);
     };
 
     /**

@@ -22,7 +22,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import git.artdeell.mojo.R;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
@@ -99,7 +99,7 @@ public class mcVersionSpinner extends ExtendedTextView {
 
     /** Reload profiles from the file, forcing the spinner to consider the new data */
     public void reloadProfiles() {
-        PojavApplication.sExecutorService.execute(()->{
+        BronzeApplication.sExecutorService.execute(()->{
             try {
                 final Instances instances = Instances.loadDisplay();
                 Tools.runOnUiThread(()->applyInstances(instances));

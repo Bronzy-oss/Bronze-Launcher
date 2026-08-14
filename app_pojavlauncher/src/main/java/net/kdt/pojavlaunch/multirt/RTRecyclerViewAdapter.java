@@ -1,6 +1,6 @@
 package net.kdt.pojavlaunch.multirt;
 
-import static net.kdt.pojavlaunch.PojavApplication.sExecutorService;
+import static net.kdt.pojavlaunch.BronzeApplication.sExecutorService;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

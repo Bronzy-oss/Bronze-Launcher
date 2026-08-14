@@ -10,7 +10,7 @@ import com.kdt.mcgui.ProgressLayout;
 
 import net.kdt.pojavlaunch.JavaGUILauncherActivity;
 import net.kdt.pojavlaunch.LauncherActivity;
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
@@ -115,7 +115,7 @@ public class InstanceInstaller implements ContextExecutorTask {
 
     public void start() {
         ProgressLayout.setProgress(ProgressLayout.INSTANCE_INSTALL, 0);
-        PojavApplication.sExecutorService.execute(()->{
+        BronzeApplication.sExecutorService.execute(()->{
             try {
                 threadedStart();
             }catch (Exception e) {

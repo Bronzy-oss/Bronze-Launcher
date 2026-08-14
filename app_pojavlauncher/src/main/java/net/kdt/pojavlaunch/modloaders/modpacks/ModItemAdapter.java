@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.kdt.SimpleArrayAdapter;
 
-import net.kdt.pojavlaunch.PojavApplication;
+import net.kdt.pojavlaunch.BronzeApplication;
 import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.modloaders.modpacks.api.ModpackApi;
@@ -78,7 +78,7 @@ public class ModItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.mSearchFilters = searchFilters;
         this.mLastPage = false;
         mTaskInProgress = new SelfReferencingFuture(new SearchApiTask(mSearchFilters, null))
-                .startOnExecutor(PojavApplication.sExecutorService);
+                .startOnExecutor(BronzeApplication.sExecutorService);
     }
 
     @NonNull
@@ -123,7 +123,7 @@ public class ModItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private void loadMoreResults() {
         if(mTaskInProgress != null) return;
         mTaskInProgress = new SelfReferencingFuture(new SearchApiTask(mSearchFilters, mCurrentResult))
-                .startOnExecutor(PojavApplication.sExecutorService);
+                .startOnExecutor(BronzeApplication.sExecutorService);
     }
 
     @Override
@@ -218,7 +218,7 @@ public class ModItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                             mExtensionFuture = null;
                             setStateDetailed(mModDetail);
                         });
-                    }).startOnExecutor(PojavApplication.sExecutorService);
+                    }).startOnExecutor(BronzeApplication.sExecutorService);
                 }
             });
 
