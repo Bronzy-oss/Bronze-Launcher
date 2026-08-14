@@ -3,7 +3,7 @@
 //
 
 #include "utils.h"
-#include "pojavexec.h"
+#include "bronzeexec.h"
 #include "driver_helper/nsbypass.h"
 #include <jni.h>
 #include <stdio.h>
@@ -15,7 +15,7 @@ static JavaVM* dalivk;
 static jclass class_CallbackBridge;
 static jmethodID method_openLink;
 
-static pojavexec_renderspec_t renderspec = {0};
+static bronzeexec_renderspec_t renderspec = {0};
 static const char* native_dir;
 
 void openLink(const char* link) {
@@ -103,10 +103,10 @@ Java_net_kdt_pojavlaunch_utils_JREUtils_configureRenderspecDisplay(JNIEnv *env, 
     renderspec.disp_hz = refresh_rate;
 }
 
-const pojavexec_renderspec_t* pojavexec_getRenderSpec() {
+const bronzeexec_renderspec_t* bronzeexec_getRenderSpec() {
     return &renderspec;
 }
-const char* pojavexec_getNativeDirectory(){
+const char* bronzeexec_getNativeDirectory(){
     return native_dir;
 }
 

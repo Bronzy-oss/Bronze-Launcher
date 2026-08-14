@@ -13,7 +13,7 @@
 #define TAG __FILE_NAME__
 #include <log.h>
 
-#include "../pojavexec.h"
+#include "../bronzeexec.h"
 
 
 static const char* gles_symbol_fallbacks[] = {
@@ -63,12 +63,12 @@ static jlong ndlopen_bugfix(__attribute__((unused)) JNIEnv *env,
     // Oveeride vulkan loading to let us load vulkan ourselves
     if(strstr(filename, "libvulkan.so") == filename) {
         printf("LWJGL linkerhook: replacing load for libvulkan.so with custom driver\n");
-        return (jlong) pojavexec_loadVulkanDriver();
+        return (jlong) bronzeexec_loadVulkanDriver();
     }
     // Load renderer using egl_acquire
     if(strstr(filename, "libGLMojo.so") == filename) {
         printf("LWJGL linkerhook: replacing OpenGL with renderspec driver\n");
-        const pojavexec_renderspec_t *rspec = pojavexec_getRenderSpec();
+        const bronzeexec_renderspec_t *rspec = bronzeexec_getRenderSpec();
         return (jlong) rspec->egl_acquire(rspec->renderer_path ? rspec->renderer_path : rspec->egl_path);
     }
 
@@ -77,7 +77,7 @@ static jlong ndlopen_bugfix(__attribute__((unused)) JNIEnv *env,
     // It is not a problem as most of the libraries are in the launcher path, but when you try to run
     // VulkanMod which loads shaderc outside of the default jni libs directory through this method,
     // it can't load it because the path is not in the allowed paths for the anonymous namesapce.
-    // This method fixes the issue by being in libpojavexec, and thus being in the classloader namespace
+    // This method fixes the issue by being in libbronzeexec, and thus being in the classloader namespace
 
     int mode = (int)jmode;
     return (jlong) dlopen(filename, mode);

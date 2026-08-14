@@ -9,7 +9,7 @@ LOCAL_PATH := $(HERE_PATH)
 
 include $(CLEAR_VARS)
 LOCAL_LDLIBS := -ldl -llog -landroid
-LOCAL_MODULE := pojavexec
+LOCAL_MODULE := bronzeexec
 LOCAL_SRC_FILES := \
     affinity.c \
     egl_bridge.c \
@@ -41,7 +41,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := exithook
 LOCAL_LDLIBS := -ldl -llog
-LOCAL_SHARED_LIBRARIES := bytehook pojavexec
+LOCAL_SHARED_LIBRARIES := bytehook bronzeexec
 LOCAL_SRC_FILES := \
     native_hooks/exit_hook.c \
     native_hooks/chmod_hook.c
@@ -56,7 +56,7 @@ include $(BUILD_SHARED_LIBRARY)
 #endif
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := pojavexec_awt
+LOCAL_MODULE := bronzeexec_awt
 LOCAL_SRC_FILES := \
     awt_bridge.c
 include $(BUILD_SHARED_LIBRARY)

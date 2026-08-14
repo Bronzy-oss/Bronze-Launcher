@@ -13,7 +13,7 @@
 
 #include <driver_helper/nsbypass.h>
 #include <android/dlext.h>
-#include <pojavexec.h>
+#include <bronzeexec.h>
 
 static bool turnip_enabled = false;
 
@@ -23,7 +23,7 @@ bool load_turnip_vulkan() {
     if(driver_loaded) return true;
 
     const char* cache_dir = getenv("TMPDIR");
-    if(!linker_ns_load(pojavexec_getNativeDirectory())) return NULL;
+    if(!linker_ns_load(bronzeexec_getNativeDirectory())) return NULL;
     void* linkerhook = linker_ns_dlopen("liblinkerhook.so", RTLD_LOCAL | RTLD_NOW);
     if(linkerhook == NULL) return NULL;
     void* turnip_driver_handle = linker_ns_dlopen("libvulkan_freedreno.so", RTLD_LOCAL | RTLD_NOW);
@@ -54,7 +54,7 @@ bool load_turnip_vulkan() {
 }
 #endif
 
-void* pojavexec_loadVulkanDriver() {
+void* bronzeexec_loadVulkanDriver() {
 #ifdef ENABLE_TURNIP_LOADER
     if(android_get_device_api_level() >= 28) { // the loader does not support below that
         if(turnip_enabled && load_turnip_vulkan())

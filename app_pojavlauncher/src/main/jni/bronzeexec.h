@@ -17,10 +17,10 @@ typedef struct {
     int disp_height;
     int disp_hz;
     const char* renderer_path;
-} pojavexec_renderspec_t;
+} bronzeexec_renderspec_t;
 
-void* pojavexec_loadVulkanDriver();
-const char* pojavexec_getNativeDirectory();
-const pojavexec_renderspec_t* pojavexec_getRenderSpec();
+void* bronzeexec_loadVulkanDriver();
+const char* bronzeexec_getNativeDirectory();
+const bronzeexec_renderspec_t* bronzeexec_getRenderSpec();
 
 #endif //POJAVLAUNCHER_POJAVEXEC_H
