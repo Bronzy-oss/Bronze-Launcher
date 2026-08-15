@@ -350,7 +350,7 @@ dependencies {
 
     implementation 'org.tukaani:xz:1.10'
     // Our version of exp4j can be built from source at
-    // https://github.com/Bronze LauncherTeam/exp4j
+    // https://github.com/PojavLauncherTeam/exp4j
     implementation 'net.sourceforge.htmlcleaner:htmlcleaner:2.29'
     implementation 'com.bytedance:bytehook:1.1.1'
 
