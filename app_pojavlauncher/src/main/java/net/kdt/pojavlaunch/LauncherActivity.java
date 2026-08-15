@@ -199,6 +199,11 @@ public class LauncherActivity extends BaseActivity {
                     Tools.swapFragment(this, LauncherPreferenceFragment.class, SETTING_FRAGMENT_TAG, null);
                 }
                 return true;
+            } else if (id == R.id.nav_installations) {
+                if (!getSupportFragmentManager().isStateSaved()) {
+                    Tools.swapFragment(this, net.kdt.pojavlaunch.fragments.InstallationsFragment.class, net.kdt.pojavlaunch.fragments.InstallationsFragment.TAG, null);
+                }
+                return true;
             } else {
                 Toast.makeText(this, R.string.bottom_nav_coming_soon, Toast.LENGTH_SHORT).show();
                 return true;
