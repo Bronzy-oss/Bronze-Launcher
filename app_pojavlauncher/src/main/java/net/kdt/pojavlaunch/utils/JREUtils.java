@@ -267,7 +267,7 @@ public class JREUtils {
                 eglLibrary = renderLibrary;
                 renderLibrary = MesaUtils.getPreferredEGL();
                 useGles = false;
-                bypassNamespace = true; // Mesa is linked to a bunch of libraries not available in the pojavexec namespace
+                bypassNamespace = true; // Mesa is linked to a bunch of libraries not available in the bronzeexec namespace
                 glesVersion = 3;
                 if(preloadVk) preloadVulkan(); // Zink requires Vulkan library to be preloaded
                 break;
@@ -324,7 +324,7 @@ public class JREUtils {
     // Obtain AWT screen pixels to render on Android SurfaceView
     public static native boolean renderAWTScreenFrame(ByteBuffer tempBuffer);
     static {
-        System.loadLibrary("pojavexec");
-        System.loadLibrary("pojavexec_awt");
+        System.loadLibrary("bronzeexec");
+        System.loadLibrary("bronzeexec_awt");
     }
 }
